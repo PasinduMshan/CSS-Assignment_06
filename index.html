@@ -1163,77 +1163,7 @@
     </main>
     <script src="assets/lib/jquery-3.7.1.min.js"></script>
 
-    <script>
-
-        $("#header-navBar").css({display: 'none'});
-        $("#dashBoardPage").css({display: 'none'});
-        $("#customerPage").css({display: 'none'});
-        $("#itemPage").css({display: 'none'});
-        $("#placeOrderPage").css({display: 'none'});
-
-        $("#btn-logOut").on('click', () => {
-            $("#header-navBar").css({display: 'none'});
-            $("#dashBoardPage").css({display: 'none'});
-            $("#customerPage").css({display: 'none'});
-            $("#itemPage").css({display: 'none'});
-            $("#placeOrderPage").css({display: 'none'});
-
-            $("#loginPage").css({display: 'block'});
-        });
-
-        $("#btn-Login").on('click', () => {
-            $("#loginPage").css({display: 'none'});
-            $("#customerPage").css({display: 'none'});
-            $("#itemPage").css({display: 'none'});
-            $("#placeOrderPage").css({display: 'none'});
-
-            $("#header-navBar").css({display: 'block'});
-            $("#dashBoardPage").css({display: 'block'});
-        });
-
-        $("#navHome").on('click', () => {
-            $("#loginPage").css({display: 'none'});
-            $("#customerPage").css({display: 'none'});
-            $("#itemPage").css({display: 'none'});
-            $("#placeOrderPage").css({display: 'none'});
-
-            $("#header-navBar").css({display: 'block'});
-            $("#dashBoardPage").css({display: 'block'});
-        });
-
-        $("#navCustomer").on('click', () => {
-            $("#loginPage").css({display: 'none'});
-            $("#dashBoardPage").css({display: 'none'});
-            $("#itemPage").css({display: 'none'});
-            $("#placeOrderPage").css({display: 'none'});
-
-            $("#header-navBar").css({display: 'block'});
-            $("#customerPage").css({display: 'block'});
-        });
-
-        $("#navItem").on('click', () => {
-            $("#loginPage").css({display: 'none'});
-            $("#dashBoardPage").css({display: 'none'});
-            $("#customerPage").css({display: 'none'});
-            $("#placeOrderPage").css({display: 'none'});
-
-            $("#header-navBar").css({display: 'block'});
-            $("#itemPage").css({display: 'block'});
-        });
-
-        $("#navOrder").on('click', () => {
-            $("#loginPage").css({display: 'none'});
-            $("#dashBoardPage").css({display: 'none'});
-            $("#customerPage").css({display: 'none'});
-            $("#itemPage").css({display: 'none'});
-
-            $("#header-navBar").css({display: 'block'});
-            $("#placeOrderPage").css({display: 'block'});
-        });
-
-
-
-    </script>
+    <script src="assets/js/navJs.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
