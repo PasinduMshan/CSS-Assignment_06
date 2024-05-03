@@ -1,0 +1,169 @@
+
+/*-------------- SignIn_Page_Style --------------*/
+
+.login-back {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8622.jpg?t=st=1711695351~exp=1711698951~hmac=eb74ceb5c0983b7a20cf06705b214215e9d491b57b8903351091ed9bfda71f30&w=1380");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.position-signIn-card {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.card-header {
+    font-family: "Times New Roman", sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+.label-font-style{
+    font-weight: bold;
+    font-family: "Times New Roman", sans-serif;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.button-style {
+    width: 150px;
+    margin: 50px 0;
+}
+
+
+/*-------------- Header_Style --------------*/
+
+#logo-name {
+    color: orangered;
+    margin: 0 5px;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.log-out-btn {
+    margin-right: 20px;
+}
+
+.section-star-position {
+    position: relative;
+    top: 6rem;
+}
+
+
+/*-------------- Dashboard_Page_Style --------------*/
+
+.bar-chart-style {
+    margin-top: 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 0;
+    position: relative;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.cus-card {
+    background-color: #fcfbed;
+}
+
+.cus-card-style {
+    color: blue;
+    font-family: "Times New Roman", sans-serif;
+}
+
+.count-card-style {
+    margin-top: 2rem;
+    background-color:#fcf6d2;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
+/*-------------- Customer_&_Item_&_Order_Page_Styles --------------*/
+
+.Search_Card {
+    margin-top: 1rem;
+}
+
+.Details_Form_Card {
+    margin-top: 1rem;
+}
+
+.Table-View {
+    position: relative;
+    top: 3rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 1px solid darkgray;
+    padding: 0;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.Card-Header-back-colour {
+    background-color: #ffbc79;
+}
+
+
+/*-------------- PlaceOrder_Page_Style --------------*/
+
+.main-header {
+    margin: 1rem 0;
+}
+
+.all-Orders-btn-colour {
+    background-color: #133a75;
+}
+
+.search-Order-btn-colour {
+    background-color: #24872c;
+}
+
+#purchase-position {
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+#purchase-card {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    background-color: #f9f7ff;
+}
+
+#sub-total-label {
+    color: red;
+}
+
+#total-label {
+    color: blue;
+}
+
+.table-model-style {
+    margin-top: 20px;
+    border: 1px solid darkgray;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+}
+.search-card-style {
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid darkgray;
+}
