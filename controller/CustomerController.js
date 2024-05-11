@@ -43,9 +43,7 @@ function loadCusTable() {
 
        $("#customer-tbody").append(recode);
     });
-
-
-};
+}
 
 
 /*--- Table row action ---*/

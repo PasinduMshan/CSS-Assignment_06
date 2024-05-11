@@ -379,8 +379,8 @@
                                 </div>
 
                                 <div class="text-end ">
-                                    <button type="submit" class="btn btn-success">Add Item</button>
-                                    <button type="reset" class="btn btn-primary">Refresh</button>
+                                    <button id="itemBtnSubmit" type="button" class="btn btn-success">Add Item</button>
+                                    <button id="itemBtnReset" type="reset" class="btn btn-primary">Refresh</button>
                                 </div>
 
                             </form>
@@ -395,8 +395,9 @@
                         <div  class="card-body">
                             <h5 id="search-bar-font" class="card-title">Search Items</h5>
                             <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Enter Item Code" aria-label="Search">
-                                <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#ItemModal">Search</button>
+                                <input id="searchItemCode" class="form-control me-2" type="search" placeholder="Enter Item Code" aria-label="Search">
+                                <button id="searchItemResetBtn" class="btn" type="reset"></button>
+                                <button id="searchItemBtn" class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#ItemModal">Search</button>
                             </form>
                         </div>
                     </div>
@@ -413,67 +414,8 @@
                                 <th scope="col">Quantity On Hand</th>
                             </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <tbody id="item-tbody">
+                       
                         </tbody>
                     </table>
 
@@ -519,9 +461,9 @@
                                             </div>
 
                                             <div class="text-end ">
-                                                <button type="button" class="btn btn-warning">Update</button>
-                                                <button type="button" class="btn btn-danger">Delete</button>
-                                                <button type="reset" class="btn btn-primary">Refresh</button>
+                                                <button id="itemBtnUpdate" type="button" class="btn btn-warning">Update</button>
+                                                <button id="itemBtnDelete" type="button" class="btn btn-danger">Delete</button>
+                                                <button id="itemModalResetBtn" type="reset" class="btn btn-primary">Refresh</button>
                                             </div>
 
                                         </form>
@@ -1097,6 +1039,7 @@
 
     <script src="assets/js/navJs.js"></script>
     <script type="module" src="controller/CustomerController.js"></script>
+    <script type="module" src="controller/ItemController.js"></script>
 
 </body>
 </html>
