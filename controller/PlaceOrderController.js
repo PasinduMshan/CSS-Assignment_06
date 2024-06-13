@@ -42,22 +42,6 @@ function generateOrderId() {
 
     }
 
-    // } else {
-    //
-    //     var index = placeOrderArray[placeOrderArray.length - 1];
-    //
-    //     var lastDigit = index.slice(-1);
-    //
-    //     var sliceId = index.slice(0, -1);
-    //
-    //     var newLastDigit = ++lastDigit;
-    //
-    //     var newOrderId = sliceId + newLastDigit;
-    //
-    //     $("#orderId").val(newOrderId);
-    //
-    // }
-
 }
 
 /*--- Add Customer Details to input Field  ---*/
@@ -137,8 +121,6 @@ $("#addToCartBtn").on('click', () => {
 
                 $("#orderItemQTY").attr("placeholder", item.itemQTY);
             }
-
-
         }
 
     });
@@ -470,9 +452,28 @@ $("#modalUpdateBtn").on('click', () => {
     loadModalOrderDetail();
 });
 
+/*--- View All Order Details ---*/
+
+$("#viewAllOrders").on('click', () => {
+    $("#allOrderDetails").empty();
+
+    placeOrderArray.map(item => {
+
+        var recode = `<tr>
+                <td class="order-model-itemId-value">${item.orderId}</td>
+                <td class="order-model-itemId-value">${item.itemId}</td>
+                <td class="order-model-itemName-value">${item.itemName}</td>
+                <td class="order-model-price-value">${item.price}</td>
+                <td class="order-model-qty-value">${item.qty}</td>
+                <td class="order-model-orderTotal-value">${item.orderTotal}</td>
+            </tr>`
+
+        $("#allOrderDetails").append(recode);
+    });
+});
+
 
 $("#navOrder").on('click', () => {
     loadItemsID();
     generateOrderId();
-
 });
