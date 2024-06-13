@@ -8,6 +8,7 @@ var recodeIndex = undefined;
 
 var searchCustomerIndex = undefined;
 
+validation();
 
 /*--- Save Customer Details ---*/
 
@@ -18,11 +19,19 @@ $("#cusBtnSubmit").on('click', () => {
     var cusContact = $("#customerContact").val();
     var cusNIC = $("#customerNIC").val();
 
+    if (!validation()) {
+        alert("Fill the Detail Correctly..");
+        return;
+    }
+
+
     let customer = new CustomerModel(cusId, cusName, cusAddress, cusContact, cusNIC);
 
     customerArray.push(customer);
 
     loadCusTable();
+
+    alert("Customer Save Successful!!!");
 
     $("#cusBtnReset").click();
 });
@@ -113,6 +122,8 @@ $("#cusBtnUpdate").on('click', () => {
 
     loadCusTable();
 
+    alert("Customer Update Successful!!!");
+
 });
 
 
@@ -125,6 +136,8 @@ $("#cusBtnDelete").on('click', () => {
     loadCusTable();
 
     $('#cusRefreshBtn').click();
+
+    alert("Customer Delete Successful!!!");
 });
 
 
@@ -136,6 +149,108 @@ $("#cusBtnReset").on('click', () => {
     $('#searchResetBtn').click();
 
 });
+
+
+/*--- Validation Part ---*/
+
+
+function validation(){
+
+
+    //customer ID
+
+    $('.ValidateCusID').on('propertychange input', function (e) {
+
+        var cusId = $(".ValidateCusID").val();
+
+        let index = customerArray.findIndex(item => item.cusId === cusId);
+
+        if (index === 0) {
+            $('.ValidateCusID').css("border","2px solid #FF00FF");
+            return;
+        }
+
+        if(!cusId.match("[C]\\d{3,}")){
+            $('.ValidateCusID').css("border","2px solid red");
+        }else{
+            $('.ValidateCusID').css("border","2px solid #92F646");
+        }
+
+    });
+
+
+    //customer Name
+
+    $('.ValidateCusName').on('propertychange input', function (e) {
+
+        var cusName = $(".ValidateCusName").val();
+
+        if(!cusName.match( "^[A-Z][a-zA-Z]{2,}$")){
+            $('.ValidateCusName').css("border","2px solid red");
+        }else{
+            $('.ValidateCusName').css({"border":"2px solid #92F646"});
+        }
+
+    });
+
+    //customer Address
+
+    $('.ValidateCusAdd').on('propertychange input', function (e) {
+
+        var cusAddress = $(".ValidateCusAdd").val();
+
+
+        if(!cusAddress.match("^[A-Z][a-zA-Z]{2,}$")){
+            $('.ValidateCusAdd').css("border","2px solid red");
+        }else{
+            $('.ValidateCusAdd').css("border","2px solid #92F646");
+        }
+
+    });
+
+
+    //customer Contact
+
+    $('.ValidateCusTel').on('propertychange input', function (e) {
+
+        var cusTel = $(".ValidateCusTel").val();
+
+        if(!cusTel.match( "^([+]94{1,3}|[0])([1-9]{2})([0-9]){7}$")){
+            $('.ValidateCusTel').css("border","2px solid red");
+        }else{
+            $('.ValidateCusTel').css("border","2px solid #92F646");
+        }
+
+    });
+
+
+    //customer NIC
+
+    $('.ValidateCusNIC').on('propertychange input', function (e) {
+
+        var cusNIC = $(".ValidateCusNIC").val();
+
+        if(!cusNIC.match( "^([0-9]{9}[x|X|v|V]|[0-9]{12})$")){
+            $('.ValidateCusNIC').css("border","2px solid red");
+        }else{
+            $('.ValidateCusNIC').css("border","2px solid #92F646");
+        }
+
+    });
+
+    var cusId = $(".ValidateCusID").val();
+    var cusName = $(".ValidateCusName").val();
+    var cusTel = $(".ValidateCusTel").val();
+    var cusAddress = $(".ValidateCusAdd").val();
+    var cusNIC = $(".ValidateCusNIC").val();
+
+    if(cusId.length === 0 || cusName.length === 0 || cusTel.length === 0 || cusAddress.length === 0 || cusNIC.length === 0){
+        return false;
+    }else {
+        return true;
+    }
+}
+
 
 
 

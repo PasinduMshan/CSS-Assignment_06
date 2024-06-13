@@ -13,6 +13,8 @@ var indexNumOfOrderArray = undefined;
 
 var totalValueOfItems  = 0;
 
+validation();
+
 
 function loadItemsID() {
 
@@ -125,6 +127,11 @@ $("#addToCartBtn").on('click', () => {
 
     });
 
+    if (!validation()) {
+        alert("Fill the Detail Correctly..");
+        return;
+    }
+
     let placeOrder= new PlaceOrderModel(orderId, orderCustomerId, orderDate, orderItemId, orderItemName, orderItemPrice, orderItemQTY, total);
 
     placeOrderArray.push(placeOrder);
@@ -228,6 +235,8 @@ $("#orderCart-tbody").on('click', '.orderDeleteActionBtn', function (event) {
 
     placeOrderArray.splice(indexNumOfOrderArray, 1);
 
+
+
     loadOrderCartTable();
 });
 
@@ -245,6 +254,8 @@ $("#purchaseBtn").on('click', () => {
     var orderSubTotal = +$("#orderSubTotal").val();
 
     totalValueOfItems  = 0;
+
+    alert("Order Purchase Successful!!!");
 
 });
 
@@ -400,6 +411,9 @@ $("#modalDeleteBtn").on('click', () => {
 
     loadModalOrderDetail();
 
+
+    alert("Order Delete Successful!!!");
+
 });
 
 /*--- Update Item Details ---*/
@@ -449,6 +463,10 @@ $("#modalUpdateBtn").on('click', () => {
             item.orderTotal = total;
         }
     });
+
+
+    alert("Order Update Successful!!!");
+
     loadModalOrderDetail();
 });
 
@@ -477,3 +495,146 @@ $("#navOrder").on('click', () => {
     loadItemsID();
     generateOrderId();
 });
+
+
+/*--- Validation Part ---*/
+
+
+function validation(){
+
+    //Order ID
+
+    $('.ValidateOrderId').on('propertychange input', function (e) {
+
+        var orderId = $(".ValidateOrderId").val();
+
+
+        if(!orderId.match("[OR]\\d{3,}")){
+            $('.ValidateOrderId').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderId').css("border","2px solid #92F646");
+        }
+
+    });
+
+    //customer ID
+
+    $('.ValidateOrderCusId').on('propertychange input', function (e) {
+
+        var cusId = $(".ValidateOrderCusId").val();
+
+
+        if(!cusId.match("[C]\\d{3,}")){
+            $('.ValidateOrderCusId').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderCusId').css("border","2px solid #92F646");
+        }
+
+    });
+
+
+    //customer Name
+
+    $('.ValidateOrderCusName').on('propertychange input', function (e) {
+
+        var cusName = $(".ValidateOrderCusName").val();
+
+        if(!cusName.match( "^[A-Z][a-zA-Z]{2,}$")){
+            $('.ValidateOrderCusName').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderCusName').css({"border":"2px solid #92F646"});
+        }
+
+    });
+
+    //customer Address
+
+    $('.ValidateOrderCusAdd').on('propertychange input', function (e) {
+
+        var cusAddress = $(".ValidateOrderCusAdd").val();
+
+
+        if(!cusAddress.match("^[A-Z][a-zA-Z]{2,}$")){
+            $('.ValidateOrderCusAdd').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderCusAdd').css("border","2px solid #92F646");
+        }
+
+    });
+
+    //Item ID
+
+    $('.ValidateOrderItemId').on('propertychange input', function (e) {
+
+        var itemID = $(".ValidateOrderItemId").val();
+
+        if(!itemID.match("[I]\\d{3,}")){
+            $('.ValidateOrderItemId').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderItemId').css("border","2px solid #92F646");
+        }
+
+    });
+
+
+    //Item Name
+
+    $('.ValidateOrderItemDesc').on('propertychange input', function (e) {
+
+        var itemDesc = $(".ValidateOrderItemDesc").val();
+
+        if(!itemDesc.match( "^[A-Z][a-zA-Z]{2,}$")){
+            $('.ValidateOrderItemDesc').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderItemDesc').css({"border":"2px solid #92F646"});
+        }
+
+    });
+
+    //item Price
+
+    $('.ValidateOrderItemPrice').on('propertychange input', function (e) {
+
+        var itemPrice = $(".ValidateOrderItemPrice").val();
+
+
+        if(!itemPrice.match("^\\d+$")){
+            $('.ValidateOrderItemPrice').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderItemPrice').css("border","2px solid #92F646");
+        }
+
+    });
+
+
+    //item QTY
+
+    $('.ValidateOrderItemQty').on('propertychange input', function (e) {
+
+        var itemQty = $(".ValidateOrderItemQty").val();
+
+        if(!itemQty.match( "^\\d+$")){
+            $('.ValidateOrderItemQty').css("border","2px solid red");
+        }else{
+            $('.ValidateOrderItemQty').css("border","2px solid #92F646");
+        }
+
+    });
+
+
+    var orderId = $(".ValidateOrderId").val();
+    var cusId = $(".ValidateOrderCusId").val();
+    var cusName = $(".ValidateOrderCusName").val();
+    var cusAddress = $(".ValidateOrderCusAdd").val();
+    var itemID = $(".ValidateOrderItemId").val();
+    var itemDesc = $(".ValidateOrderItemDesc").val();
+    var itemPrice = $(".ValidateOrderItemPrice").val();
+    var itemQty = $(".ValidateOrderItemQty").val();
+
+
+    if(orderId.length === 0 || cusId.length === 0 || cusName.length === 0 || cusAddress.length === 0 || itemID.length === 0 || itemDesc.length === 0 || itemPrice.length === 0 || itemQty.length === 0){
+        return false;
+    }else {
+        return true;
+    }
+}
