@@ -521,7 +521,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="orderCustomerId" class="form-label">Customer ID :</label>
-                                    <input type="text" class="form-control" id="orderCustomerId">
+                                    <input type="text" class="form-control orderCustomerIdClick" id="orderCustomerId">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="orderCustomerName" class="form-label">Customer Name :</label>
@@ -547,9 +547,9 @@
                             <form class="row g-3">
                                 <div class="col-md-6">
                                     <label for="orderItemId" class="form-label">Item ID :</label>
-                                    <select id="orderItemId" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>...</option>
+                                    <select id="orderItemId" class="form-select OrderItemIdCmb">
+<!--                                        <option selected>Choose...</option>-->
+<!--                                        <option>...</option>-->
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -565,7 +565,8 @@
                                     <input type="number" class="form-control" id="orderItemQTY">
                                 </div>
                                 <div class="col-12 text-end">
-                                    <button type="submit" class="btn btn-success">Add to cart</button>
+                                    <button id="addToCartResetBtn" class="btn" type="reset"></button>
+                                    <button id="addToCartBtn" type="button" class="btn btn-success">Add to cart</button>
                                 </div>
                             </form>
                         </div>
@@ -583,7 +584,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="orderDiscount" class="form-label">Discount :</label>
-                                    <input type="number" class="form-control" id="orderDiscount">
+                                    <input type="number" class="form-control" id="orderDiscount" placeholder="Enter Discount Percentage">
                                 </div>
                                 <div class="col-md-10">
                                     <label for="orderBalance" class="form-label">Balance :</label>
@@ -607,7 +608,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Purchase</button>
+                                    <button id="purchaseBtn" type="button" class="btn btn-primary">Purchase</button>
                                 </div>
                             </form>
                         </div>
@@ -627,97 +628,8 @@
                             <th scope="col">Action</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </td>
-                        </tr>
+                        <tbody id="orderCart-tbody">
+
                         </tbody>
                     </table>
                 </section>
@@ -737,6 +649,7 @@
                                 <table class="table table-secondary table-striped table-model-style" >
                                     <thead>
                                     <tr class="table-light">
+                                        <th scope="col">Order ID</th>
                                         <th scope="col">Item code</th>
                                         <th scope="col">Item Description</th>
                                         <th scope="col">Price</th>
@@ -840,8 +753,8 @@
                                     <div  class="card-body">
                                         <h5 id="search-bar" class="card-title">Search Order</h5>
                                         <form class="d-flex" role="search">
-                                            <input class="form-control me-2" type="search" placeholder="Enter Order ID " aria-label="Search">
-                                            <button class="btn btn-outline-primary" type="submit">Search</button>
+                                            <input id="searchOrderId" class="form-control me-2" type="search" placeholder="Enter Order ID " aria-label="Search">
+                                            <button id="searchOrderIdBtn" class="btn btn-outline-primary" type="button">Search</button>
                                         </form>
                                     </div>
                                 </div>
@@ -887,9 +800,8 @@
                                         <form class="row g-3">
                                             <div class="col-md-6">
                                                 <label for="modalOrderItemId" class="form-label">Item ID :</label>
-                                                <select id="modalOrderItemId" class="form-select">
-                                                    <option selected>Choose...</option>
-                                                    <option>...</option>
+                                                <select id="modalOrderItemId" class="form-select OrderItemIdCmb">
+
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
@@ -920,100 +832,11 @@
                                         <th scope="col">Price</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Total</th>
-                                        <th scope="col">Action</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row"></th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </td>
-                                    </tr>
+                                    <tbody id="model-order-tbody">
+
+
                                     </tbody>
 
                                 </table>
@@ -1021,9 +844,9 @@
 
                             <div class="modal-footer">
                                 <div class="text-end ">
-                                    <button type="button" class="btn btn-warning">Update</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                    <button type="reset" class="btn btn-primary">Refresh</button>
+                                    <button id="modalUpdateBtn" type="button" class="btn btn-warning">Update</button>
+                                    <button id="modalDeleteBtn" type="button" class="btn btn-danger">Delete</button>
+                                    <button id="modalResetBtn" type="reset" class="btn btn-primary">Refresh</button>
                                 </div>
                             </div>
                         </div>
@@ -1037,9 +860,10 @@
     <script src="assets/lib/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <script src="assets/js/navJs.js"></script>
+    <script type="module" src="assets/js/navJs.js"></script>
     <script type="module" src="controller/CustomerController.js"></script>
     <script type="module" src="controller/ItemController.js"></script>
+    <script type="module" src="controller/PlaceOrderController.js"></script>
 
 </body>
 </html>

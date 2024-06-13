@@ -62,4 +62,5 @@ $("#navOrder").on('click', () => {
 
     $("#header-navBar").css({display: 'block'});
     $("#placeOrderPage").css({display: 'block'});
+
 });

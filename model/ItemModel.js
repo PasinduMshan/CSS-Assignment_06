@@ -8,7 +8,7 @@ export default class ItemModel {
     }
 
     set itemId(itemId) {
-        this._itemName = itemId;
+        this._itemId = itemId;
     }
 
     get itemId() {

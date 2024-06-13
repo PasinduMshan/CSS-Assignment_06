@@ -89,7 +89,7 @@ $("#searchItemBtn").on('click', () => {
     $("#itemBtnReset").click();
 });
 
-/*--- Update Customer Details ---*/
+/*--- Update Item Details ---*/
 
 $("#itemBtnUpdate").on('click', () => {
     let item_ID = $("#modalItemId").val();
